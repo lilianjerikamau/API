@@ -21,7 +21,7 @@ public class App {
         Connection conn;
         Gson gson = new Gson();
 
-        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/database.sql'";
+        String connectionString = "jdbc:h2:~/api.db;INIT=RUNSCRIPT from 'classpath:db/database.sql'";
         Sql2o sql2o = new Sql2o(connectionString,"","");
 
         departmentDao = new  Sql2oOrgDepartmentDao (sql2o);
