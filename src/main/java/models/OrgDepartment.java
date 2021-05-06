@@ -3,48 +3,52 @@ package models;
 import java.util.Objects;
 
 public class OrgDepartment {
-    private int id;
-    private String department_name;
-    private String department_description;
+    private int departmentId;
+    private String departmentName;
+    private String departmentDescription;
 
-    public int getId() {
-        return id;
+    public OrgDepartment(String departmentName, String departmentDescription) {
+        this.departmentName = departmentName;
+        this.departmentDescription = departmentDescription;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getDepartmentId() {
+        return departmentId;
     }
 
-    public String getDepartment_name() {
-        return department_name;
+    public void setDepartmentId(int departmentId) {
+        this.departmentId = departmentId;
     }
 
-    public void setDepartment_name(String department_name) {
-        this.department_name = department_name;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public String getDepartment_description() {
-        return department_description;
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 
-    public void setDepartment_description(String department_description) {
-        this.department_description = department_description;
+    public String getDepartmentDescription() {
+        return departmentDescription;
     }
 
-    public OrgDepartment (String department_name, String department_description){
-
+    public void setDepartmentDescription(String departmentDescription) {
+        this.departmentDescription = departmentDescription;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof OrgDepartment)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         OrgDepartment that = (OrgDepartment) o;
-        return getId() == that.getId() && Objects.equals(getDepartment_name(), that.getDepartment_name()) && Objects.equals(getDepartment_description(), that.getDepartment_description());
+        return departmentId == that.departmentId &&
+                Objects.equals(departmentName, that.departmentName) &&
+                Objects.equals(departmentDescription, that.departmentDescription);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getDepartment_name(), getDepartment_description());
+        return Objects.hash(departmentId, departmentName, departmentDescription);
     }
 }
+

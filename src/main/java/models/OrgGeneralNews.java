@@ -3,58 +3,62 @@ package models;
 import java.util.Objects;
 
 public class OrgGeneralNews {
-    private int id;
-    private String news_info;
-    private String news_type;
-    private int user_id;
-    public OrgGeneralNews (int user_id,String news_info,String news_type){
-        this.news_info = news_info;
-        this.user_id = user_id;
-        this.news_type = news_type;
+    private int newsId;
+    private String newsData;
+    private String newsType;
+    private int newsUserId;
+
+    public OrgGeneralNews(String newsData, String newsType, int newsUserId) {
+        this.newsData = newsData;
+        this.newsType = newsType;
+        this.newsUserId = newsUserId;
     }
 
-    public int getId() {
-        return id;
+    public int getNewsUserId() {
+        return newsUserId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setNewsUserId(int newsUserId) {
+        this.newsUserId = newsUserId;
     }
 
-    public String getNews_info() {
-        return news_info;
+    public int getNewsId() {
+        return newsId;
     }
 
-    public void setNews_info(String news_info) {
-        this.news_info = news_info;
+    public void setNewsId(int newsId) {
+        this.newsId = newsId;
     }
 
-    public String getNews_type() {
-        return news_type;
+    public String getNewsData() {
+        return newsData;
     }
 
-    public void setNews_type(String news_type) {
-        this.news_type = news_type;
+    public void setNewsData(String newsData) {
+        this.newsData = newsData;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public String getNewsType() {
+        return newsType;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setNewsType(String newsType) {
+        this.newsType = newsType;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof OrgGeneralNews)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         OrgGeneralNews that = (OrgGeneralNews) o;
-        return getId() == that.getId() && getUser_id() == that.getUser_id() && Objects.equals(getNews_info(), that.getNews_info()) && Objects.equals(getNews_type(), that.getNews_type());
+        return newsId == that.newsId &&
+                newsUserId == that.newsUserId &&
+                newsData.equals(that.newsData) &&
+                newsType.equals(that.newsType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getNews_info(), getNews_type(), getUser_id());
+        return Objects.hash(newsId, newsData, newsType, newsUserId);
     }
 }

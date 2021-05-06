@@ -2,34 +2,33 @@ package models;
 
 import java.util.Objects;
 
-public class OrgDepartmentNews extends OrgGeneralNews{
-    private int id;
-    public OrgDepartmentNews(int user_id, String news_info, String news_type) {
-        super(user_id, news_info, news_type);
-        this.id = id;
+public class OrgDepartmentNews extends OrgGeneralNews {
+    private int departmentNewsId;
+
+    public OrgDepartmentNews( String newsInformation, String newsType, int newsUserId, int departmentNewsId) {
+        super( newsInformation, newsType, newsUserId);
+        this.departmentNewsId = departmentNewsId;
     }
 
-    @Override
-    public int getId() {
-        return id;
+    public int getDepartmentNewsId() {
+        return departmentNewsId;
     }
 
-    @Override
-    public void setId(int id) {
-        this.id = id;
+    public void setDepartmentNewsId(int departmentNewsId) {
+        this.departmentNewsId = departmentNewsId;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof OrgDepartmentNews)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         OrgDepartmentNews that = (OrgDepartmentNews) o;
-        return getId() == that.getId();
+        return departmentNewsId == that.departmentNewsId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getId());
+        return Objects.hash(super.hashCode(), departmentNewsId);
     }
 }

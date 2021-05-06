@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface OrgNewsDao {
     //create
-    void addOrganizationGeneralNews(OrgGeneralNews generalNews);
-    void addOrganizationDepartmentsNews(OrgDepartmentNews departmentNews);
+    void addOrgGeneralNews(OrgGeneralNews generalNews);
+    void addOrgDepartmentsNews(OrgDepartmentNews departmentNews);
 
     //read
     List<OrgGeneralNews> getAllGeneralNews();
@@ -17,7 +17,7 @@ public interface OrgNewsDao {
     OrgDepartmentNews findDepartmentNewsById(int departmentNewsId);
 
     //update
-    void updateGeneralNews(OrgGeneralNews general_news, String news_info, int user_id);
+    void updateGeneralNews(OrgGeneralNews generalNews, String newsData, int userId);
     void updateDepartmentNews(OrgDepartmentNews departmentNews, String newsData, int departmentId, int userId);
 
     //delete
