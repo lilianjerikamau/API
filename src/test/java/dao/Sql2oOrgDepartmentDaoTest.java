@@ -22,8 +22,8 @@ public class Sql2oOrgDepartmentDaoTest {
 
     @BeforeAll
     public static void setUp() throws Exception {
-        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/database.sql'";
-        Sql2o sql2o = new Sql2o(connectionString,""," ");
+        String connectionString =  "jdbc:postgresql://localhost:5432/jadle_test";
+        Sql2o sql2o = new Sql2o(connectionString,"sherry","password");
 
         departmentDao = new Sql2oOrgDepartmentDao (sql2o);
         conn = sql2o.open();
@@ -57,13 +57,6 @@ public class Sql2oOrgDepartmentDaoTest {
     public void returnsEmptyListIfNoDepartmentExists() throws Exception {
         assertEquals(0, departmentDao.getAllDepartments().size());
     }
-
-//    @Test
-//    public void getASpecificDepartmentUsingID() throws Exception {
-//        departmentDao.addDepartment(testDepartment);
-//        OrgDepartment retrievedDepartment = departmentDao.findDepartmentById(testDepartment.getDepartmentId());
-//        assertEquals(testDepartment, retrievedDepartment);
-//    }
 
     @Test
     public void deletesADepartmentOnDeletionById() throws Exception {

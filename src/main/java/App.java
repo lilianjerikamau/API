@@ -21,8 +21,8 @@ public class App {
         Connection conn;
         Gson gson = new Gson();
 
-        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/database.sql'";
-        Sql2o sql2o = new Sql2o(connectionString,"","");
+        String connectionString =  "jdbc:postgresql://localhost:5432/jadle"; //connect to jadle, not jadle_test!
+        Sql2o sql2o = new Sql2o(connectionString,"sherry","password");
 
         departmentDao = new  Sql2oOrgDepartmentDao (sql2o);
         userDao = new Sql2oOrgUserDao(sql2o);
